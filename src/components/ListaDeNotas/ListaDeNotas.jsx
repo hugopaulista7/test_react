@@ -1,19 +1,24 @@
-import React, { Component } from "react";
-import CardNota from "../CardNota";
+import React, { Component } from 'react'
+import CardNota from '../CardNota'
 import './estilo.css'
 
 class ListaDeNotas extends Component {
-  
   renderList() {
-    return this.props.notas.map(({titulo, texto}, index) => (
-      <li key={index} className="lista-notas_item">
-        <CardNota titulo={titulo} texto={texto} apagarNota={this.props.apagarNota} indice={index}/>
+    return this.props.notas.map(({ titulo, texto, categoria }, index) => (
+      <li key={index} className='lista-notas_item'>
+        <CardNota
+          titulo={titulo}
+          texto={texto}
+          apagarNota={this.props.apagarNota}
+          categoria={categoria}
+          indice={index}
+        />
       </li>
-    ));
+    ))
   }
 
   render() {
-    return <ul className="lista-notas">{this.renderList()}</ul>;
+    return <ul className='lista-notas'>{this.renderList()}</ul>
   }
 }
-export default ListaDeNotas;
+export default ListaDeNotas
